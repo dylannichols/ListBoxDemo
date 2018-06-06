@@ -23,8 +23,21 @@
         
         <Rectangle Fill="#FADA55" Grid.Row="0" Grid.Column="1"/>
         <Button Content="Search" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Height="50" />
-        
-        <ListBox Name="NameBox" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <ListBox Name="NameBox" Grid.Row="1" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsReadOnly="True">
+                        <TextBox.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="FName" />
+                                <Binding Path="LName" />
+                            </MultiBinding>
+                        </TextBox.Text>
+                    </TextBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         
         <Button Content="Reset" Grid.Row="2" Grid.Column="0" FontSize="30"/>
         <Button Content="Exit" Grid.Row="2" Grid.Column="1" FontSize="30"/>
