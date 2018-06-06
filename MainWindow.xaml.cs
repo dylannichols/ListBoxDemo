@@ -37,6 +37,38 @@ namespace ListBoxDemo
             NameBox.ItemsSource = People;
         }
 
-        
+        private void SearchEvent(object sender, RoutedEventArgs e)
+        {
+            NameBox.ItemsSource = People;
+
+            var items = NameBox.Items;
+            List<Person> p = new List<Person>();
+
+            foreach (Person item in items)
+            {
+                if (item.FName == Input.Text)
+                {
+                    p.Add(item);
+                }
+            }
+
+            NameBox.ItemsSource = p;
+        }
+
+        private void ResetEvent(object sender, RoutedEventArgs e)
+        {
+            NameBox.ItemsSource = People;
+
+        }
+
+        private void ExitEvent(object sender, RoutedEventArgs e)
+        {
+            var message = MessageBox.Show("Are you sure want to quit?", "ListBoxDemo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (message == MessageBoxResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            // Environment.Exit(0);
+        }
     }
 }

@@ -22,12 +22,12 @@
         <TextBox Name="Input" VerticalAlignment="Center" Height="50" FontSize="40" Grid.Row="0" Grid.Column="0"/>
         
         <Rectangle Fill="#FADA55" Grid.Row="0" Grid.Column="1"/>
-        <Button Content="Search" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Height="50" />
+        <Button Content="Search" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Height="50" Click="SearchEvent"/>
 
         <ListBox Name="NameBox" Grid.Row="1" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBox FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsReadOnly="True">
+                    <TextBox FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsReadOnly="True" BorderThickness="0">
                         <TextBox.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
                                 <Binding Path="FName" />
@@ -39,7 +39,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         
-        <Button Content="Reset" Grid.Row="2" Grid.Column="0" FontSize="30"/>
-        <Button Content="Exit" Grid.Row="2" Grid.Column="1" FontSize="30"/>
+        <Button Content="Reset" Grid.Row="2" Grid.Column="0" FontSize="30" Click="ResetEvent"/>
+        <Button Content="Exit" Grid.Row="2" Grid.Column="1" FontSize="30" Click="ExitEvent"/>
     </Grid>
 </Window>
